@@ -1,26 +1,29 @@
 import re
 
 while True:
+    valida = True
     password = input("dimmi la password da inserire: ")
     if len(password) < 8:
         print("la password deve essere lunga almeno 8 caratteri!")
-        continue
+        valida = False
     if not re.search("[A-Z]+", password): 
         print("la password deve contenre almeno una lettera maiuscola!")
-        continue
+        valida = False 
     if not re.search("[a-z]+", password): 
         print("la password deve contenre almeno una lettera minuscola!")
-        continue
+        valida = False
     if not re.search("[0-9]+", password): 
         print("la password deve contenre almeno un numero!")
-        continue
+        valida = False 
     if not re.search("[\.,_-]+", password): 
         print("la password deve contenre almeno un carattere speciale!")
+        valida = False 
+
+    if valida == True:
+     print("la password è valida!")
+     break
+    else: 
         continue
-
-    print("la password è valida!")
-    break
-
     
 
 print("Chiudo il programma.")
